@@ -1,0 +1,10 @@
+.ct-component-text {
+  font-size: rem-calc(19px);
+  line-height: rem-calc(32px);
+
+  .ct-component-text-2-columns {
+    @media (max-width: $breakpoint-medium-max) {
+      margin-bottom: 3rem;
+    }
+  }
+}

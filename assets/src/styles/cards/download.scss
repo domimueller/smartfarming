@@ -1,0 +1,90 @@
+$download-boxshadow-color: $font-color;
+$download-link-color: $primary-color;
+
+.ct-component-download {
+  margin-left: auto;
+  margin-right: auto;
+
+  .ct-component-header {
+    padding-bottom: rem-calc(12px);
+  }
+}
+
+.ct-card-download {
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba($download-boxshadow-color, 0.2);
+  padding: rem-calc(30px);
+  margin-bottom: rem-calc(20px);
+
+  .ct-card-content {
+    font-size: rem-calc(14px);
+    line-height: rem-calc(23px);
+    font-weight: 200;
+  }
+
+  .ct-card-download-extension {
+    padding-bottom: 3px;
+
+    &:before {
+      content: "";
+      background-image: url("../../src/images/Unknown-Filetype-Icon.svg");
+      display: inline-block;
+      width: rem-calc(16px);
+      height: rem-calc(20px);
+      margin: 0 rem-calc(8px) 0 0;
+      vertical-align: middle;
+    }
+
+    &[data-download-icon="DMG"]:before {
+      background-image: url("../../src/images/DMG-Icon.svg");
+    }
+
+    &[data-download-icon="DOC"]:before {
+      background-image: url("../../src/images/DOC-Icon.svg");
+    }
+
+    &[data-download-icon="EXE"]:before {
+      background-image: url("../../src/images/EXE-Icon.svg");
+    }
+
+    &[data-download-icon="ISO"]:before {
+      background-image: url("../../src/images/ISO-Icon.svg");
+    }
+
+    &[data-download-icon="JPG"]:before {
+      background-image: url("../../src/images/JPG-Icon.svg");
+    }
+
+    &[data-download-icon="MSI"]:before {
+      background-image: url("../../src/images/MSI-Icon.svg");
+    }
+
+    &[data-download-icon="PDF"]:before {
+      background-image: url("../../src/images/PDF-Icon.svg");
+    }
+
+    &[data-download-icon="PNG"]:before {
+      background-image: url("../../src/images/PNG-Icon.svg");
+    }
+
+    &[data-download-icon="PPT"]:before {
+      background-image: url("../../src/images/PPT-Icon.svg");
+    }
+
+    &[data-download-icon="XLS"]:before {
+      background-image: url("../../src/images/XLS-Icon.svg");
+    }
+
+    &[data-download-icon="ZIP"]:before {
+      background-image: url("../../src/images/ZIP-Icon.svg");
+    }
+  }
+
+  .ct-card-download-link {
+    color: $primary-color;
+
+    .ct-card-download-link-icon {
+      margin: 0 rem-calc(8px) 0 0;
+    }
+  }
+}

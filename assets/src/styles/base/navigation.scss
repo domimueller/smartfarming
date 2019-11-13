@@ -1,0 +1,103 @@
+/**
+ * Basic naviagtion stylesheet
+ * Build mobile first mentality 
+ * If propperly used it doesen't need any JS
+ * 
+ * @author Marc Mentha <marc@cubetech.ch>
+ */
+
+$navigation-link-padding: 0.625rem 1.25rem;
+$navigation-background-color: $white;
+
+// hide checkbox
+.naviagtion-checkbox {
+    display: none;
+}
+// add pointer cursor to menu toggler
+.navigation-toggler {
+    cursor: pointer;
+    position: relative;
+    z-index: 20;
+    @media (min-width: $breakpoint-medium) {
+        display: none;
+    }
+}
+// basic reset css
+.navigation-container,
+.sub-navigation {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.navigation-item {
+    position: relative;
+}
+.navigation-link {
+    display: block;
+    padding: $navigation-link-padding;
+}
+.navigation-container {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    position: absolute;
+    @media (min-width: $breakpoint-medium) {
+        position: relative;
+        height: auto;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        display: flex;
+        align-items: center;
+    }
+}
+.sub-navigation {
+    transition: all 300ms ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    @media (min-width: $breakpoint-medium) {
+        position: absolute;
+        top: -50%;
+    }
+}
+// handle mobile navigation appearance here
+.naviagtion-checkbox:checked + .navigation-container {
+    display: block;
+    position: fixed;
+    padding-top: 1.25rem;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+    background-color: $navigation-background-color;
+}
+.navigation-link:hover + .sub-navigation,
+.navigation-link:active + .sub-navigation,
+.navigation-link:focus + .sub-navigation,
+.sub-navigation:hover {
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+    width: 100%;
+    height: auto;
+    z-index: 10;
+    .sub-navigation {
+        top: 0;
+        left: 100%;
+    }
+}
+
+
+
+
+
+
+
+

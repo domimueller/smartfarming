@@ -1,0 +1,27 @@
+$numbers-boxshadow-color: $font-color;
+
+.ct-card-numbers {
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba($numbers-boxshadow-color, 0.2);
+  padding: rem-calc(30px);
+  margin-bottom: rem-calc(20px);
+
+  .ct-card-numbers-title {
+    font-size: rem-calc(30px);
+  }
+
+  .ct-card-numbers-divider {
+    height: rem-calc(32px);
+    color: rgba($primary-color, 0.5);
+
+    .inner-divider {
+      color: $primary-color;
+    }
+  }
+
+  .ct-card-content {
+    font-size: rem-calc(14px);
+    line-height: rem-calc(23px);
+    font-weight: 200;
+  }
+}

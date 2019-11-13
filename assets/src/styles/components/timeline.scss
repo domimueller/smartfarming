@@ -1,0 +1,173 @@
+$timeline-timeline-color: $primary-color;
+$timeline-card-border: 1px solid rgba($black, 0.06);
+$timeline-card-box-shadow: 0 1px 3px rgba($font-color, 0.2);
+$timeline-year-color: $heading-color;
+$timeline-title-color: $heading-color;
+$timeline-description-color: $font-color;
+$timeline-timeline-start-color: $white;
+$timeline-end-circle-size: rem-calc(19px);
+$timeline-start-circle-1-size: rem-calc(149px);
+$timeline-start-circle-2-size: rem-calc(118px);
+$timeline-start-circle-3-size: rem-calc(88px);
+
+.ct-component-timeline {
+  .ct-component-timeline-leadtext {
+    padding-bottom: rem-calc(96px);
+  }
+
+  .ct-component-timeline-start {
+    color: $timeline-timeline-start-color;
+    margin-top: rem-calc(44px);
+    margin-bottom: rem-calc(-16px);
+    width: $timeline-start-circle-1-size;
+    height: $timeline-start-circle-1-size;
+
+    .circle-1 {
+      background-color: rgba($timeline-timeline-color, 1/3) !important;
+      width: $timeline-start-circle-1-size;
+      height: $timeline-start-circle-1-size;
+    }
+
+    .circle-2 {
+      background-color: rgba($timeline-timeline-color, 2/3) !important;
+      width: $timeline-start-circle-2-size;
+      height: $timeline-start-circle-2-size;
+    }
+
+    .circle-3 {
+      background-color: rgba($timeline-timeline-color, 1) !important;
+      width: $timeline-start-circle-3-size;
+      height: $timeline-start-circle-3-size;
+    }
+
+    @media (max-width: $breakpoint-medium-max) {
+      margin-left: 0;
+    }
+
+  }
+
+  .uk-grid-divider > :not(.uk-first-column)::before {
+    border: 1px solid $timeline-timeline-color;
+
+    @media print {
+      display: none !important;
+    }
+  }
+
+  .ct-component-content {
+    @media (min-width: $breakpoint-large) {
+      .ct-card-timeline {
+        :first-child::before {
+          content: "";
+          position: absolute;
+          height: 0px;
+          border: $timeline-card-border;
+          top: 50%;
+        }
+      }
+
+      :nth-child(odd) {
+        // timelineCard at the left of the timeline
+        .ct-card-timeline {
+          margin-left: 0;
+          margin-bottom: rem-calc(-80px);
+          transform: translate(0%, -50%);
+
+          :first-child::before {
+            width: rem-calc(104px);
+            left: 100%;
+          }
+        }
+      }
+
+      :nth-child(even) {
+        // timelineCard at the right of the timeline
+        .ct-card-timeline {
+          margin-right: 0;
+
+          :first-child::before {
+            width: rem-calc(100px);
+            right: 100%;
+          }
+        }
+      }
+    }
+
+    @media (max-width: $breakpoint-medium-max) {
+      border-left: 2px solid $timeline-timeline-color;
+      padding-bottom: rem-calc(46px);
+      margin-left: calc(calc(#{$timeline-start-circle-1-size} / 2) - 0.5px);
+
+      // timelineCard at the right of the timeline
+      .ct-card-timeline {
+        margin-right: 0;
+
+        :first-child::before {
+          content: "";
+          position: absolute;
+          height: 0px;
+          border: $timeline-card-border;
+          top: 50%;
+          width: rem-calc(26px);
+          right: 100%;
+        }
+      }
+    }
+
+    /* Suppress the "uk-grid-divider" for too small screen */
+    &.uk-grid-divider.uk-grid-stack > .uk-grid-margin::before {
+      display: none;
+    }
+  }
+
+  .ct-component-timeline-end {
+    background-color: $timeline-timeline-color !important;
+    width: $timeline-end-circle-size;
+    height: $timeline-end-circle-size;
+
+    @media (max-width: $breakpoint-medium-max) {
+      margin-left: calc((#{$timeline-start-circle-1-size} - #{$timeline-end-circle-size}) / 2);
+    }
+
+  }
+}
+
+.ct-card-timeline {
+  border-radius: 2px;
+  box-shadow: $timeline-card-box-shadow;
+  padding: 0 rem-calc(36px);
+  margin: rem-calc(48px) rem-calc(64px);
+
+  @media (max-width: $breakpoint-medium-max) {
+    margin-left: rem-calc(32px);
+    margin-right: 0;
+  }
+
+  @media print {
+    border: $timeline-card-border;
+  }
+
+  .ct-card-header {
+    padding: rem-calc(20px) 0;
+  }
+
+  .ct-card-timeline-year {
+    font-size: rem-calc(18px);
+    line-height: rem-calc(28px);
+    color: $timeline-year-color;
+    margin-bottom: 0.2rem;
+  }
+
+  .ct-card-timeline-title {
+    font-size: rem-calc(22px);
+    line-height: rem-calc(30px);
+    color: $timeline-title-color;
+  }
+
+  .ct-card-timeline-description {
+    font-size: rem-calc(14px);
+    line-height: rem-calc(21px);
+    color: $timeline-description-color;
+    padding-bottom: rem-calc(32px);
+  }
+}

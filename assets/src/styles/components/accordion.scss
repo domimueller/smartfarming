@@ -1,0 +1,15 @@
+.ct-component-accordion {
+  font-size: rem-calc(19px);
+  line-height: rem-calc(36px);
+
+  .uk-accordion > li {
+    margin-top: 0;
+    padding: 2rem;
+    border: 1px solid $medium-gray;
+
+    &:nth-of-type(even) {
+      border-top: 0;
+    }
+  }
+}
+

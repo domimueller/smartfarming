@@ -1,0 +1,51 @@
+.ct-header {
+    .image-wrapper {
+        width: 100%;
+        height: calc(100vh - 22.125rem);
+        overflow: hidden;
+        position: relative;
+
+        img {
+            height: auto;
+            width: auto;
+            min-width: 100%;
+            min-height: 100%;
+            max-width: unset;
+            max-height: calc(100% + 22.125rem);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            @media(max-width: $breakpoint-medium-max){
+                left: 50%;
+                top: 0;
+                height: 100%;
+                transform: translate(-50%, 0);
+            }
+        }
+    }
+}
+
+.home .ct-header {
+    height: calc(100vh - 8.75rem);
+    .image-wrapper {
+        min-height: calc(100vh - 5rem);
+        @media(max-width: $breakpoint-medium-max){
+            min-height: 100vh;
+        }
+
+        img {
+            max-height: calc(100% + 8.75rem);
+        }
+    }
+    .ct-page-title {
+        padding-top: rem-calc(74px);
+    }
+}
+
+.admin-bar{
+    &.home .ct-header .image-wrapper{
+        min-height: calc(100vh - 7rem);
+    }
+}

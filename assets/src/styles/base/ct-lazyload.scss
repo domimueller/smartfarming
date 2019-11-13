@@ -1,0 +1,24 @@
+.lazyload-target-container {
+    width: 100%;
+}
+
+.lazyload-button-container {
+    width: 100%;
+    text-align: center;
+
+    .lazyload-button-trigger {
+        &[disabled] {
+            display: none;
+        }
+        &.hidden {
+            display: none;
+        }
+    }
+
+    .lazyload-button-spinner {
+        margin: 0 auto;
+        &.hidden {
+            display: none;
+        }
+    }
+}

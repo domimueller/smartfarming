@@ -1,0 +1,54 @@
+$team-boxshadow-color: $font-color;
+$team-link-color: $primary-color;
+$team-background-icons: $global-background;
+
+.ct-component-team {
+  .ct-component-header {
+    padding-bottom: rem-calc(12px);
+  }
+}
+
+.ct-card-team {
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba($team-boxshadow-color, 0.2);
+  padding: rem-calc(30px) 0;
+
+  .ct-card-header,
+  .ct-card-team-function,
+  .ct-card-team-email,
+  .ct-card-team-phone {
+    margin: 0 rem-calc(30px);
+  }
+
+  .ct-card-content {
+    font-size: rem-calc(14px);
+    line-height: rem-calc(23px);
+    font-weight: 200;
+  }
+
+  .ct-card-team-image-wrapper {
+    text-align: center;
+  }
+
+  .ct-card-team-icons-wrapper,
+  .ct-card-team-socialmedia-wrapper {
+    color: $team-link-color;
+    margin-right: rem-calc(22px);
+    margin-bottom: rem-calc(20px);
+
+    .ct-card-team-icons-image {
+      background-color: $team-background-icons;
+      padding: rem-calc(18px);
+    }
+  }
+
+  .ct-card-team-function,
+  .ct-card-team-email {
+    padding-bottom: 3px;
+  }
+
+  .ct-card-team-email,
+  .ct-card-team-phone {
+    color: $team-link-color;
+  }
+}

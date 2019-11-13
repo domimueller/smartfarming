@@ -1,0 +1,47 @@
+.ct-component-video {
+
+  @media print {
+    display: none !important;
+  }
+
+  .uk-position-relative {
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .ct-video {
+    outline: 0;
+  }
+
+  .video-overlay-image,
+  .ct-transparent-overlay {
+    border-radius: 3px;
+    transition: all 200ms ease-in-out;
+  }
+
+  .video-overlay-image {
+    min-height: 100%;
+  }
+
+  .faded {
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+  }
+
+  .ct-transparent-overlay {
+    background-color: rgba($white, .5);
+    top: rem-calc(16px);
+    right: rem-calc(16px);
+    bottom: rem-calc(16px);
+    left: rem-calc(16px);
+    cursor: pointer;
+  }
+
+  .ct-play-button {
+    @media (max-width: $breakpoint-medium-max) {
+      width: rem-calc(72px);
+    }
+  }
+
+}

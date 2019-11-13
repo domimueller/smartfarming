@@ -1,0 +1,19 @@
+.ct-search-card {
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba($download-boxshadow-color, 0.2);
+    transition: all 200ms ease-in-out;
+    &:hover {
+        box-shadow: 0 1px rem-calc(30px) rgba($download-boxshadow-color, 0.2);
+        .arrow {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    .arrow {
+        color: $primary-color;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 200ms ease-in-out;
+    }
+}
