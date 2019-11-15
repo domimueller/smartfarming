@@ -9,7 +9,8 @@ use Cubetech\Partials\Header;
 /**
  * Template class for the index.php template
  *
- * @author Alex Scherer <alex.scherer@cubetech.ch>
+ * @author Dominique Müller <dominiquepeter.mueller@students.bfh.ch>
+
  * @since Version 1.0
  */
 class ArchiveKamerabildTemplate extends BaseTemplate

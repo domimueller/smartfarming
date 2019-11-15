@@ -8,7 +8,7 @@ use Cubetech\Base\Media;
  * Class for an unified card handling can
  * Cards can extend fro mthis class to apply this functionality
  *
- * @author Marc Mentha <marc@cubetech.ch>
+ * @author Dominique Müller <dominiquepeter.mueller@students.bfh.ch>
  * @since 0.0.1
  * @version 1.0.0
  */
@@ -20,7 +20,7 @@ class KamerabildCard extends BaseCard
      * @param CubetechPost $post
      * @return void
      *
-     * @author Marc Mentha <marc@cubetech.ch>
+     * @author Dominique Müller <dominiquepeter.mueller@students.bfh.ch>
      * @version 1.0.0
      * @since 1.0.0
      */

@@ -9,7 +9,7 @@ use Cubetech\Partials\Header;
 /**
  * Template class for the SinglePage template
  *
- * @author Steeve Jeannin <steeve@cubetech.ch>
+ * @author Dominique Müller <dominiquepeter.mueller@students.bfh.ch>
  * @since 1.0.0
  * @version 1.0.0
  */
