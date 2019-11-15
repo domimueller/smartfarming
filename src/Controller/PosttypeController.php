@@ -20,6 +20,7 @@ class PosttypeController extends ABaseController
         \Cubetech\Posttypes\TeamPosttype::class,
         \Cubetech\Posttypes\DownloadPosttype::class,
         \Cubetech\Posttypes\EventPosttype::class,
+        \Cubetech\Posttypes\KamerabildPosttype::class,        
     ];
     
     /**
