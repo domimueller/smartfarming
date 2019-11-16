@@ -91,11 +91,11 @@ class KamerabildPosttype extends APosttype
                 'can_export'          => true,
                 'has_archive'         => false,
                 'exclude_from_search' => false,
-                'publicly_queryable'  => false,
+                'publicly_queryable'  => true,
                 'capability_type'     => 'post',
                 'map_meta_cap'        => true,
                 'rewrite'             => ['slug' => _x('kamera', 'Slug for posttype Kamerabild', 'wptheme-smartfarming')],
-                'menu_icon'           => 'dashicons-download',
+                'menu_icon'           => 'dashicons-camera',
         ];
     }
 }

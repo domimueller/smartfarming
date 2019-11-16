@@ -31,6 +31,7 @@ class KamerabildCard extends BaseCard
         $this->kamerabildId = intval($this->getField('kamerabild'));
         $this->kamerabild = new Media((int) $this->kamerabildId);
         $this->kamerabildURL = $this->kamerabild ? $this->kamerabild->getImageUrl('full') : "";
+        $this->link = $this->getLink();  
         $this->datum = $this->getField('datum');
         $this->uhrzeit = $this->getField('uhrzeit');
         $this->breitengrad = $this->getField('breitengrad');
