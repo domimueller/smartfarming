@@ -5,6 +5,7 @@ namespace Cubetech\Templates;
 use \Cubetech\Rendering\TemplatePart;
 use \Cubetech\PageBuilder\PageBuilder;
 use Cubetech\Partials\Header;
+use Cubetech\Base\Media;
 
 /**
  * Template class for the SinglePage template
@@ -28,7 +29,8 @@ class SingleKamerabildTemplate extends BaseTemplate
             $this->contentList->append(new PageBuilder());
         } else {
             parent::__construct('Page');
-            $this->contentList->append(new TemplatePart('default-page-content'));
+            $this->contentList->append(new TemplatePart('single-kamerabild-content'));
+            /*feedback: wäre eigentlich schön, wenn ich hier felder mitgeben könnte wie datum etc.*/
         }
         $this->headerList->append(new Header('headers/default-header'));
     }

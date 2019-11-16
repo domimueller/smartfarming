@@ -1,85 +1,84 @@
+
 <?php
 
-use \Cubetech\Helpers\Helper;
+use Cubetech\Base\Media;
 
-if ( !$this->title || empty($this->title)) {
-    return;
-}
+/* get the data */
+$this->kamerabildId = intval($this->getField('kamerabild'));
+$this->kamerabild = new Media((int) $this->kamerabildId);
+$this->kamerabildURL = $this->kamerabild ? $this->kamerabild->getImageUrl('full') : "";
+
+$this->title = apply_filters('the_title', get_post_field('post_title', get_the_id()));
+
+$this->datum = $this->getField('datum');
+$this->uhrzeit = $this->getField('uhrzeit');
+$this->breitengrad = $this->getField('breitengrad');
+$this->langengrad = $this->getField('langengrad');
+
 ?>
-<article class="uk-position-relative uk-margin-large-bottom ct-search-card uk-padding uk-width-1-1">
 
-    <header class="ct-card-header">
-        <h2><?php echo $this->title; ?></h2>
-    </header>
-	
+<div class="uk-container">
+
 	<div class="uk-grid">
-		<?php if ( !empty($this->kamerabildURL)) : ?>
-		    <div class="ct-kamerabild uk-width-1-2">
+		
+		    <div class="ct-kamerabild uk-width-1-1 uk-margin-large-bottom">
 		        <figure class="ct-card-kamerabild-wrapper">
 		            <img class="ct-card-kamerabild" src="<?php echo $this->kamerabildURL; ?>" data-uk-img alt="<?php echo $this->title; ?>"/>
 		        </figure>    	
 		    </div>
-		<?php endif; ?>
+		
 
-		<div class="ct-kamerabild-beschreibung uk-width-1-2">
+		<div class="ct-kamerabild-beschreibung uk-width-1-1">
 
-			<div class="uk-child-width-1-2 uk-grid" >
+			<div class="uk-child-width-1-4 uk-grid uk-margin-small-top" >
 				<?php if ( !empty($this->datum)) : ?>
-					<div class="beschreibung-titel">
+					<div class="beschreibung-datum">
 						<span class="uk-margin-small-right" uk-icon="calendar"></span>
 						<span class="uk-text-bold">Datum:</span>
-					</div>
-					<div class="beschreibung-wert">       
-						<?php 
+						<span>
+													<?php 
 							// ACF speichert Werte immer im Format Ymd (YYYYMMDD) in der Datenbank ab. Daher muss ich diese nun konvertieren zu j F Y, damit sie für den Endbenutzer gut lesbar sind.
-							echo (DateTime::createFromFormat('Ymd', $this->getField('datum'))->format('j.m Y'));
+							echo (DateTime::createFromFormat('Ymd', $this->getField('datum'))->format('j F Y'));
 						?>
 
+							
+						</span>
 					</div>					
 				<?php endif; ?>	  
 			</div>	
 			
-			<div class="uk-child-width-1-2 uk-grid" >
+			<div class="uk-child-width-1-4 uk-grid uk-margin-small-top" >
 				<?php if ( !empty($this->uhrzeit)) : ?>
-					<div class="beschreibung-titel">
+					<div class="beschreibung-uhrzeit">
 						<span class="uk-margin-small-right" uk-icon="clock"></span>
 						<span class="uk-text-bold">Uhrzeit:</span>
-					</div>
-					<div class="beschreibung-wert">
 						<span><?php echo $this->uhrzeit ;?></span>
 					</div>					
 				<?php endif; ?>	  
 			</div>						  
 
-			<div class="uk-child-width-1-2 uk-grid" >
+			<div class="uk-child-width-1-4 uk-grid uk-margin-small-top" >
 				<?php if ( !empty($this->breitengrad)) : ?>
-					<div class="beschreibung-titel">
+					<div class="beschreibung-breitengrad">
 						<span class="uk-margin-small-right" uk-icon="location"></span>
 						<span class="uk-text-bold">Breitengrad:</span>
-					</div>
-					<div class="beschreibung-wert">
 						<span><?php echo $this->breitengrad ;?></span>
 					</div>					
 				<?php endif; ?>	  
 			</div>
 
-			<div class="uk-child-width-1-2 uk-grid" >
+			<div class="uk-child-width-1-4 uk-grid uk-margin-small-top" >
 				<?php if ( !empty($this->langengrad)) : ?>
 					<div class="beschreibung-titel">
 						<span class="uk-margin-small-right" uk-icon="location"></span>
 						<span class="uk-text-bold">Längengrad:</span>
-					</div>
-					<div class="beschreibung-wert">
 						<span><?php echo $this->langengrad ;?></span>
 					</div>					
 				<?php endif; ?>	  
 			</div>						
 
 		</div>
-	</div>
+	</div
 
-    <span class="arrow uk-position-bottom-right uk-margin-bottom uk-margin-right ct-hide-for-print" data-uk-icon="icon: arrow-right; ratio: 1.75;"></span>
-    <a class="uk-position-cover" href="<?php echo $this->link; ?>"></a>
-
-</article>
+</div>
   
