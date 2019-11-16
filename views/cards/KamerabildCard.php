@@ -6,7 +6,7 @@ if ( !$this->title || empty($this->title)) {
     return;
 }
 ?>
-<article class="uk-position-relative uk-margin-bottom ct-search-card uk-padding uk-width-1-1">
+<article class="uk-position-relative uk-margin-large-bottom ct-search-card uk-padding uk-width-1-1">
 
     <header class="ct-card-header">
         <h2><?php echo $this->title; ?></h2>
