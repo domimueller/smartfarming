@@ -30,16 +30,23 @@ $this->langengrad = $this->getField('langengrad');
 
 		<div class="ct-kamerabild-beschreibung uk-width-1-1">
 
-			<div class="uk-child-width-1-4 uk-grid uk-margin-small-top" >
+			<div class="uk-child-width-auto uk-grid uk-margin-small-top" >
 				<?php if ( !empty($this->datum)) : ?>
 					<div class="beschreibung-datum">
 						<span class="uk-margin-small-right" uk-icon="calendar"></span>
 						<span class="uk-text-bold">Datum:</span>
 						<span>
-													<?php 
-							// ACF speichert Werte immer im Format Ymd (YYYYMMDD) in der Datenbank ab. Daher muss ich diese nun konvertieren zu j F Y, damit sie für den Endbenutzer gut lesbar sind.
-							echo (DateTime::createFromFormat('Ymd', $this->getField('datum'))->format('j F Y'));
-						?>
+						
+						<?php 
+						if ( !empty($this->getField('datum'))) :
+							if ( !empty(DateTime::createFromFormat('Ymd', $this->getField('datum')))) :	
+								// ACF speichert Werte immer im Format Ymd (YYYYMMDD) in der Datenbank ab. Daher muss ich diese nun konvertieren zu j F Y, damit sie für den Endbenutzer gut lesbar sind.
+								// Falls diese Konvertierung fehlschlägt, den Titel des Post ausgeben
+								echo (DateTime::createFromFormat('Ymd', $this->getField('datum'))->format('j F Y'));
+							else:
+								echo($this->title);
+							endif;
+						endif; ?>
 
 							
 						</span>
@@ -47,7 +54,7 @@ $this->langengrad = $this->getField('langengrad');
 				<?php endif; ?>	  
 			</div>	
 			
-			<div class="uk-child-width-1-4 uk-grid uk-margin-small-top" >
+			<div class="uk-child-width-auto uk-grid uk-margin-small-top" >
 				<?php if ( !empty($this->uhrzeit)) : ?>
 					<div class="beschreibung-uhrzeit">
 						<span class="uk-margin-small-right" uk-icon="clock"></span>
@@ -56,26 +63,6 @@ $this->langengrad = $this->getField('langengrad');
 					</div>					
 				<?php endif; ?>	  
 			</div>						  
-
-			<div class="uk-child-width-1-4 uk-grid uk-margin-small-top" >
-				<?php if ( !empty($this->breitengrad)) : ?>
-					<div class="beschreibung-breitengrad">
-						<span class="uk-margin-small-right" uk-icon="location"></span>
-						<span class="uk-text-bold">Breitengrad:</span>
-						<span><?php echo $this->breitengrad ;?></span>
-					</div>					
-				<?php endif; ?>	  
-			</div>
-
-			<div class="uk-child-width-1-4 uk-grid uk-margin-small-top" >
-				<?php if ( !empty($this->langengrad)) : ?>
-					<div class="beschreibung-titel">
-						<span class="uk-margin-small-right" uk-icon="location"></span>
-						<span class="uk-text-bold">Längengrad:</span>
-						<span><?php echo $this->langengrad ;?></span>
-					</div>					
-				<?php endif; ?>	  
-			</div>						
 
 		</div>
 	</div

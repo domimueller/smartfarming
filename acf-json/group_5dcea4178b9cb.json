@@ -100,6 +100,25 @@
             "min": "",
             "max": "",
             "step": ""
+        },
+        {
+            "key": "field_5dd45e51e21c8",
+            "label": "Timestamp",
+            "name": "timestamp",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -119,5 +138,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1573910901
+    "modified": 1574198889
 }

@@ -14,16 +14,16 @@ if ( !$this->title || empty($this->title)) {
 	
 	<div class="uk-grid">
 		<?php if ( !empty($this->kamerabildURL)) : ?>
-		    <div class="ct-kamerabild uk-width-1-2">
+		    <div class="ct-kamerabild uk-width-auto uk-margin-medium-bottom uk-margin-remove-bottom-@l">
 		        <figure class="ct-card-kamerabild-wrapper">
 		            <img class="ct-card-kamerabild" src="<?php echo $this->kamerabildURL; ?>" data-uk-img alt="<?php echo $this->title; ?>"/>
 		        </figure>    	
 		    </div>
 		<?php endif; ?>
 
-		<div class="ct-kamerabild-beschreibung uk-width-1-2">
+		<div class="ct-kamerabild-beschreibung uk-width-auto">
 
-			<div class="uk-child-width-1-2 uk-grid" >
+			<div class="uk-child-width-auto uk-grid" >
 				<?php if ( !empty($this->datum)) : ?>
 					<div class="beschreibung-titel">
 						<span class="uk-margin-small-right" uk-icon="calendar"></span>
@@ -31,15 +31,21 @@ if ( !$this->title || empty($this->title)) {
 					</div>
 					<div class="beschreibung-wert">       
 						<?php 
-							// ACF speichert Werte immer im Format Ymd (YYYYMMDD) in der Datenbank ab. Daher muss ich diese nun konvertieren zu j F Y, damit sie für den Endbenutzer gut lesbar sind.
-							echo (DateTime::createFromFormat('Ymd', $this->getField('datum'))->format('j.m Y'));
-						?>
+						if ( !empty($this->getField('datum'))) :
+							if ( !empty(DateTime::createFromFormat('Ymd', $this->getField('datum')))) :	
+								// ACF speichert Werte immer im Format Ymd (YYYYMMDD) in der Datenbank ab. Daher muss ich diese nun konvertieren zu j F Y, damit sie für den Endbenutzer gut lesbar sind.
+								// Falls diese Konvertierung fehlschlägt, den Titel des Post ausgeben
+								echo (DateTime::createFromFormat('Ymd', $this->getField('datum'))->format('j F Y'));
+							else:
+								echo($this->title);
+							endif;
+						endif; ?>
 
 					</div>					
 				<?php endif; ?>	  
 			</div>	
 			
-			<div class="uk-child-width-1-2 uk-grid" >
+			<div class="uk-child-width-auto uk-grid" >
 				<?php if ( !empty($this->uhrzeit)) : ?>
 					<div class="beschreibung-titel">
 						<span class="uk-margin-small-right" uk-icon="clock"></span>
@@ -50,30 +56,6 @@ if ( !$this->title || empty($this->title)) {
 					</div>					
 				<?php endif; ?>	  
 			</div>						  
-
-			<div class="uk-child-width-1-2 uk-grid" >
-				<?php if ( !empty($this->breitengrad)) : ?>
-					<div class="beschreibung-titel">
-						<span class="uk-margin-small-right" uk-icon="location"></span>
-						<span class="uk-text-bold">Breitengrad:</span>
-					</div>
-					<div class="beschreibung-wert">
-						<span><?php echo $this->breitengrad ;?></span>
-					</div>					
-				<?php endif; ?>	  
-			</div>
-
-			<div class="uk-child-width-1-2 uk-grid" >
-				<?php if ( !empty($this->langengrad)) : ?>
-					<div class="beschreibung-titel">
-						<span class="uk-margin-small-right" uk-icon="location"></span>
-						<span class="uk-text-bold">Längengrad:</span>
-					</div>
-					<div class="beschreibung-wert">
-						<span><?php echo $this->langengrad ;?></span>
-					</div>					
-				<?php endif; ?>	  
-			</div>						
 
 		</div>
 	</div>

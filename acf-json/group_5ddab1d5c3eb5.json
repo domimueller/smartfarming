@@ -1,0 +1,70 @@
+{
+    "key": "group_5ddab1d5c3eb5",
+    "title": "Parametrisierung der Aufnahme von Kamerabildern",
+    "fields": [
+        {
+            "key": "field_5ddab2196e744",
+            "label": "Anzahl Kamerabilder pro Zeiteinheit",
+            "name": "anzahl_kamerabilder_pro_zeiteinheit",
+            "type": "range",
+            "instructions": "Geben Sie hier die Anzahl der gewünschten Kamerabilder pro Zeiteinheit ein. Dabei sind unabhängig von der gewählten Zeiteinheit jeweils Werte von 1 bis 60 erlaubt.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 1,
+            "max": 60,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5ddab2d426c94",
+            "label": "Zeiteinheit für Aufnahme der Kamerabilder",
+            "name": "anzahl_kamerabilder_pro_zeiteinheit_Kopie",
+            "type": "select",
+            "instructions": "Wählen Sie aus, ob Sie die Anzahl der Aufnahme von Kamerabildern in Sekunden, Minuten oder Stunden festlegen wollen.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "seconds": "Sekunden",
+                "minutes": "Minuten",
+                "hours": "Stunden"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1574614008
+}
