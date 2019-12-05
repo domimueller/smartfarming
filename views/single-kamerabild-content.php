@@ -12,8 +12,6 @@ $this->title = apply_filters('the_title', get_post_field('post_title', get_the_i
 
 $this->datum = $this->getField('datum');
 $this->uhrzeit = $this->getField('uhrzeit');
-$this->breitengrad = $this->getField('breitengrad');
-$this->langengrad = $this->getField('langengrad');
 
 ?>
 
@@ -29,7 +27,9 @@ $this->langengrad = $this->getField('langengrad');
 		
 
 		<div class="ct-kamerabild-beschreibung uk-width-1-1">
-
+			
+			<h3> Weitere Informationen </h3>
+			
 			<div class="uk-child-width-auto uk-grid uk-margin-small-top" >
 				<?php if ( !empty($this->datum)) : ?>
 					<div class="beschreibung-datum">

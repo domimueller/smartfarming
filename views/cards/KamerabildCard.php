@@ -22,8 +22,10 @@ if ( !$this->title || empty($this->title)) {
 		<?php endif; ?>
 
 		<div class="ct-kamerabild-beschreibung uk-width-auto">
+			
+			<h3> Weitere Informationen </h3>
 
-			<div class="uk-child-width-auto uk-grid" >
+			<div class="uk-child-width-auto uk-grid uk-margin-small-top" >	
 				<?php if ( !empty($this->datum)) : ?>
 					<div class="beschreibung-titel">
 						<span class="uk-margin-small-right" uk-icon="calendar"></span>
@@ -45,7 +47,7 @@ if ( !$this->title || empty($this->title)) {
 				<?php endif; ?>	  
 			</div>	
 			
-			<div class="uk-child-width-auto uk-grid" >
+			<div class="uk-child-width-auto uk-grid uk-margin-small-top" >
 				<?php if ( !empty($this->uhrzeit)) : ?>
 					<div class="beschreibung-titel">
 						<span class="uk-margin-small-right" uk-icon="clock"></span>

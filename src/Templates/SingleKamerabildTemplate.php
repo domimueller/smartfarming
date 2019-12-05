@@ -30,7 +30,7 @@ class SingleKamerabildTemplate extends BaseTemplate
         } else {
             parent::__construct('Page');
             $this->contentList->append(new TemplatePart('single-kamerabild-content'));
-            /*feedback: wäre eigentlich schön, wenn ich hier felder mitgeben könnte wie datum etc.*/
+            
         }
         $this->headerList->append(new Header('headers/default-header'));
     }
