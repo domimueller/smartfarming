@@ -12,6 +12,21 @@ $this->title = apply_filters('the_title', get_post_field('post_title', get_the_i
 
 $this->date = $this->getField('date');
 $this->time = $this->getField('time');
+$this->timestamp = $this->getField('timestamp');
+
+/* make the date_time information machine readable and perform a sustainable error handling */
+if ( !empty(DateTime::createFromFormat('Ymd', $this->date)->format('Y-m-j'))) :
+	$semantic_date = (DateTime::createFromFormat('Ymd', $this->date)->format('Y-m-j'));
+endif;
+
+if ( !empty(DateTime::createFromFormat('H:i:s', $this->time)->format('H:i'))) :
+
+	$semantic_time = (DateTime::createFromFormat('H:i:s', $this->time)->format('H:i'));
+endif;
+
+if ( !empty($semantic_time) && !empty($semantic_date)) :	
+	$semantic_date_time = $semantic_date . ' ' . $semantic_time;
+endif;
 ?>
 
 <div class="uk-container">
@@ -34,7 +49,7 @@ $this->time = $this->getField('time');
 					<div class="beschreibung-datum">
 						<span class="uk-margin-small-right" uk-icon="calendar"></span>
 						<span class="uk-text-bold">Datum:</span>
-						<span>
+						<time datetime="<?=(DateTime::createFromFormat('Ymd', $this->getField('date'))->format('Y-m-j H:i'));?>">
 						
 						<?php 
 						if ( !empty($this->getField('date'))) :
@@ -48,7 +63,7 @@ $this->time = $this->getField('time');
 						endif; ?>
 
 							
-						</span>
+						</time>
 					</div>					
 				<?php endif; ?>	  
 			</div>	
@@ -58,7 +73,15 @@ $this->time = $this->getField('time');
 					<div class="beschreibung-uhrzeit">
 						<span class="uk-margin-small-right" uk-icon="clock"></span>
 						<span class="uk-text-bold">Uhrzeit:</span>
-						<span><?php echo $this->time ;?></span>
+						<!-- // make date and time semantic -->		
+						<time datetime=
+						<?php
+							if  ( !empty($semantic_date_time)) :
+								echo('"' . $semantic_date_time . '"');
+							endif;								
+						?>>
+							<?php echo $this->time ;?>
+						</time>
 					</div>					
 				<?php endif; ?>	  
 			</div>						  

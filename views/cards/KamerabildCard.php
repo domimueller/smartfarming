@@ -5,6 +5,20 @@ use \Cubetech\Helpers\Helper;
 if ( !$this->title || empty($this->title)) {
     return;
 }
+
+/* make the date_time information machine readable and perform a sustainable error handling */
+if ( !empty(DateTime::createFromFormat('Ymd', $this->date)->format('Y-m-j'))) :
+	$semantic_date = (DateTime::createFromFormat('Ymd', $this->date)->format('Y-m-j'));
+endif;
+
+if ( !empty(DateTime::createFromFormat('H:i:s', $this->time)->format('H:i'))) :
+
+	$semantic_time = (DateTime::createFromFormat('H:i:s', $this->time)->format('H:i'));
+endif;
+
+if ( !empty($semantic_time) && !empty($semantic_date)) :	
+	$semantic_date_time = $semantic_date . ' ' . $semantic_time;
+endif;
 ?>
 
 <article class="uk-position-relative uk-margin-large-bottom ct-search-card uk-padding uk-width-1-1">
@@ -56,7 +70,15 @@ if ( !$this->title || empty($this->title)) {
 						<span class="uk-text-bold">Uhrzeit:</span>
 					</div>
 					<div class="beschreibung-wert">
-						<span><?php echo $this->time ;?></span>
+						<time datetime=
+						<?php
+							if  ( !empty($semantic_date_time)) :
+								echo('"' . $semantic_date_time . '"');
+							endif;								
+						?>>
+							<?php echo $this->time ;?>
+						</time>
+
 					</div>					
 				<?php endif; ?>	  
 			</div>						  
