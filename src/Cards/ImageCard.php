@@ -28,12 +28,12 @@ class ImageCard extends BaseCard
     {
         parent::__construct("ImageCard", $postId);
         $this->title = $this->getTitle();
-        $this->kamerabildId = intval($this->getField('kamerabild'));
+        $this->kamerabildId = intval($this->getField('image'));
         $this->kamerabild = new Media((int) $this->kamerabildId);
         $this->kamerabildURL = $this->kamerabild ? $this->kamerabild->getImageUrl('full') : "";
         $this->link = $this->getLink();  
-        $this->datum =$this->getField('datum');
-        $this->uhrzeit = $this->getField('uhrzeit');
+        $this->datum =$this->getField('date');
+        $this->uhrzeit = $this->getField('time');
 
     }
 

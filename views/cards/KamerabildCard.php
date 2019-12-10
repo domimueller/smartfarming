@@ -6,6 +6,7 @@ if ( !$this->title || empty($this->title)) {
     return;
 }
 ?>
+
 <article class="uk-position-relative uk-margin-large-bottom ct-search-card uk-padding uk-width-1-1">
 
     <header class="ct-card-header">
@@ -26,35 +27,36 @@ if ( !$this->title || empty($this->title)) {
 			<h3> Weitere Informationen </h3>
 
 			<div class="uk-child-width-auto uk-grid uk-margin-small-top" >	
-				<?php if ( !empty($this->datum)) : ?>
+				<?php if ( !empty($this->date)) : ?>
 					<div class="beschreibung-titel">
 						<span class="uk-margin-small-right" uk-icon="calendar"></span>
 						<span class="uk-text-bold">Datum:</span>
 					</div>
-					<div class="beschreibung-wert">       
+					<div class="beschreibung-wert"> 
 						<?php 
-						if ( !empty($this->getField('datum'))) :
-							if ( !empty(DateTime::createFromFormat('Ymd', $this->getField('datum')))) :	
+						
+							if ( !empty(DateTime::createFromFormat('Ymd', $this->getField('date')))) :	
 								// ACF speichert Werte immer im Format Ymd (YYYYMMDD) in der Datenbank ab. Daher muss ich diese nun konvertieren zu j F Y, damit sie für den Endbenutzer gut lesbar sind.
 								// Falls diese Konvertierung fehlschlägt, den Titel des Post ausgeben
-								echo (DateTime::createFromFormat('Ymd', $this->getField('datum'))->format('j F Y'));
+								echo (DateTime::createFromFormat('Ymd', $this->getField('date'))->format('j F Y'));
 							else:
 								echo($this->title);
+
 							endif;
-						endif; ?>
+						?>
 
 					</div>					
 				<?php endif; ?>	  
 			</div>	
 			
 			<div class="uk-child-width-auto uk-grid uk-margin-small-top" >
-				<?php if ( !empty($this->uhrzeit)) : ?>
+				<?php if ( !empty($this->time)) : ?>
 					<div class="beschreibung-titel">
 						<span class="uk-margin-small-right" uk-icon="clock"></span>
 						<span class="uk-text-bold">Uhrzeit:</span>
 					</div>
 					<div class="beschreibung-wert">
-						<span><?php echo $this->uhrzeit ;?></span>
+						<span><?php echo $this->time ;?></span>
 					</div>					
 				<?php endif; ?>	  
 			</div>						  

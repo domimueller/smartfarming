@@ -4,15 +4,14 @@
 use Cubetech\Base\Media;
 
 /* get the data */
-$this->kamerabildId = intval($this->getField('kamerabild'));
+$this->kamerabildId = intval($this->getField('image'));
 $this->kamerabild = new Media((int) $this->kamerabildId);
 $this->kamerabildURL = $this->kamerabild ? $this->kamerabild->getImageUrl('full') : "";
 
 $this->title = apply_filters('the_title', get_post_field('post_title', get_the_id()));
 
-$this->datum = $this->getField('datum');
-$this->uhrzeit = $this->getField('uhrzeit');
-
+$this->date = $this->getField('date');
+$this->time = $this->getField('time');
 ?>
 
 <div class="uk-container">
@@ -31,18 +30,18 @@ $this->uhrzeit = $this->getField('uhrzeit');
 			<h3> Weitere Informationen </h3>
 			
 			<div class="uk-child-width-auto uk-grid uk-margin-small-top" >
-				<?php if ( !empty($this->datum)) : ?>
+				<?php if ( !empty($this->date)) : ?>
 					<div class="beschreibung-datum">
 						<span class="uk-margin-small-right" uk-icon="calendar"></span>
 						<span class="uk-text-bold">Datum:</span>
 						<span>
 						
 						<?php 
-						if ( !empty($this->getField('datum'))) :
-							if ( !empty(DateTime::createFromFormat('Ymd', $this->getField('datum')))) :	
+						if ( !empty($this->getField('date'))) :
+							if ( !empty(DateTime::createFromFormat('Ymd', $this->getField('date')))) :	
 								// ACF speichert Werte immer im Format Ymd (YYYYMMDD) in der Datenbank ab. Daher muss ich diese nun konvertieren zu j F Y, damit sie für den Endbenutzer gut lesbar sind.
 								// Falls diese Konvertierung fehlschlägt, den Titel des Post ausgeben
-								echo (DateTime::createFromFormat('Ymd', $this->getField('datum'))->format('j F Y'));
+								echo (DateTime::createFromFormat('Ymd', $this->getField('date'))->format('j F Y'));
 							else:
 								echo($this->title);
 							endif;
@@ -55,11 +54,11 @@ $this->uhrzeit = $this->getField('uhrzeit');
 			</div>	
 			
 			<div class="uk-child-width-auto uk-grid uk-margin-small-top" >
-				<?php if ( !empty($this->uhrzeit)) : ?>
+				<?php if ( !empty($this->time)) : ?>
 					<div class="beschreibung-uhrzeit">
 						<span class="uk-margin-small-right" uk-icon="clock"></span>
 						<span class="uk-text-bold">Uhrzeit:</span>
-						<span><?php echo $this->uhrzeit ;?></span>
+						<span><?php echo $this->time ;?></span>
 					</div>					
 				<?php endif; ?>	  
 			</div>						  

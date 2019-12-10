@@ -5,7 +5,7 @@
         {
             "key": "field_5dcea479a7bfd",
             "label": "Kamerabild",
-            "name": "kamerabild",
+            "name": "image",
             "type": "image",
             "instructions": "Kamerabild, welches vom Rasperry Pi aufgenommen wurde",
             "required": 0,
@@ -29,7 +29,7 @@
         {
             "key": "field_5dcea4b0a7bfe",
             "label": "Datum",
-            "name": "datum",
+            "name": "date",
             "type": "date_picker",
             "instructions": "Datum, an welchem das Kamerabild vom Rasperry Pi aufgenommen wurde",
             "required": 0,
@@ -46,7 +46,7 @@
         {
             "key": "field_5dcea535a7bff",
             "label": "Uhrzeit",
-            "name": "uhrzeit",
+            "name": "time",
             "type": "time_picker",
             "instructions": "Uhrzeit, an welcher das Kamerabild vom Rasperry Pi aufgenommen wurde",
             "required": 0,
@@ -58,48 +58,6 @@
             },
             "display_format": "H:i:s",
             "return_format": "g:i a"
-        },
-        {
-            "key": "field_5dcea564a7c00",
-            "label": "Breitengrad",
-            "name": "breitengrad",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
-        },
-        {
-            "key": "field_5dcea653e1c5f",
-            "label": "Längengrad",
-            "name": "langengrad",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
         },
         {
             "key": "field_5dd45e51e21c8",
@@ -138,5 +96,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1574198889
+    "modified": 1575997945
 }

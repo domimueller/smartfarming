@@ -28,15 +28,12 @@ class KamerabildCard extends BaseCard
     {
         parent::__construct("KamerabildCard", $postId);
         $this->title = $this->getTitle();
-        $this->kamerabildId = intval($this->getField('kamerabild'));
+        $this->kamerabildId = intval($this->getField('image'));
         $this->kamerabild = new Media((int) $this->kamerabildId);
         $this->kamerabildURL = $this->kamerabild ? $this->kamerabild->getImageUrl('full') : "";
         $this->link = $this->getLink();  
-        $this->datum =$this->getField('datum');
-        $this->uhrzeit = $this->getField('uhrzeit');
-        $this->breitengrad = $this->getField('breitengrad');
-        $this->langengrad = $this->getField('langengrad');
-
+        $this->date =$this->getField('date');
+        $this->time = $this->getField('time');
 
     }
 
